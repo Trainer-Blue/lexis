@@ -14,7 +14,7 @@ export default function Header() {
             {isLoggedIn && (<NavLink href="/dashboard">Your Summaries</NavLink>)}
         </div>
 
-        <div className='flex lg:justify-end lg:flex-1'>
+        <div className='flex lg:justify-end'>
             {isLoggedIn? (<div className="flex gap-2 items-center">
                 <NavLink href="/upload">Upload a PDF</NavLink>
                 <div>Pro</div>

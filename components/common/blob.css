@@ -1,0 +1,42 @@
+.blob {
+    position: fixed;
+    width: 30vw;
+    opacity: 0.2;
+    aspect-ratio: 1/1;
+    animation: animate 10s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite
+      alternate forwards;
+    filter: blur(40px);
+    z-index: -1;
+    background: linear-gradient(
+      47deg,
+      rgb(152, 0, 198) 21%,
+      rgb(0, 14, 173) 67%,
+      rgb(137, 0, 235) 81%
+    );
+  }
+
+  @media screen and (max-width: 768px) {
+    .blob {
+      width: 60vw;
+    }
+    
+  }
+  
+  @keyframes animate {
+    0% {
+      translate: 40% -25%;
+      border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
+    }
+    50% {
+      translate: 30% 13%;
+      border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
+      rotate: 41deg;
+      scale: 1.15;
+    }
+    100% {
+      translate: 80% 39%;
+      border-radius: 100% 75% 92% 74% / 60% 80% 30% 70%;
+      rotate: -60deg;
+      scale: 1.05;
+    }
+  }

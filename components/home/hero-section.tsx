@@ -13,7 +13,7 @@ export default function HeroSection() {
         </div>
         <h1 className="font-bold py-6 text-center">Transform PDFs into <span className="relative inline-block">
             <span className="relative z-10">concise</span>
-            <span className="absolute inset-0 bg-violet-200 -z-10 transform -rotate-1 scale-105" aria-hidden="true"></span>
+            <span className="absolute inset-0 bg-violet-200 -z-10 transform -rotate-2 scale-105" aria-hidden="true"></span>
             </span> summaries</h1>
         <h2 className="text-lg sm:text-xl lg:text-2xl text-center px-4 lg:px-0 lg:max-w-4xl">Get a beautiful Summary reel of the document in seconds</h2>
         <Button variant={'link'} className="text-white mt-6 text-base sm:text-lg lg:text:xl rounded-full px-8 sm:px-10 lg:px-12 py-6 sm:py-7 lg:py-8 lg:mt-16 bg-linear-to-br from-purple-950 to-purple-500 hover:from-purple-500 hover:to-purple-950 hover:no-underline font-bold transition duration-700 shadow-lg">
