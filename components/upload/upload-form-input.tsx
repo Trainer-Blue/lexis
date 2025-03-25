@@ -12,7 +12,7 @@ export default function UploadFormInput({onSubmit}: UploadFormInputProps) {
         <form className="flex flex-col gap-6" onSubmit={onSubmit}>
             <div className="flex justify-end items-center gap-1"> 
                 <Input 
-                id="fle" 
+                id="file" 
                 type="file" 
                 name="file" 
                 accept="application/pdf" 

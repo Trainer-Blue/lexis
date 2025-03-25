@@ -64,7 +64,7 @@ const PricingCard = ({ name,price,description,items,id,paymentLink }: PriceType)
                 ))}
             </div>
             <div className="space-y-2 flex justify-center w-full">
-                <Link href={paymentLink} className={cn("w-full rounded-full flex items-center justify-center gap-2 bg-linear-to-br from-purple-800 to-purple-500 hover:from-purple-500 hover:to-purple-800 transition duration-300 text-white border-2 py-2",id==='pro'? 'border-purple-900':'border-purple-100 from-purple-400 to-purple-500')}>Buy Now <ArrowRight size={18}/></Link>
+                <Link href={id==='free'?"/upload":paymentLink} className={cn("w-full rounded-full flex items-center justify-center gap-2 bg-linear-to-br from-purple-800 to-purple-500 hover:from-purple-500 hover:to-purple-800 transition duration-300 text-white border-2 py-2",id==='pro'? 'border-purple-900':'border-purple-100 from-purple-400 to-purple-500')}>{id==='free'?"Try Now":"Buy Now"} <ArrowRight size={18}/></Link>
             </div>
         </div>
     </div>
