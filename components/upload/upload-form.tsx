@@ -4,8 +4,9 @@ import UploadFormInput from "@/components/upload/upload-form-input";
 import { useUploadThing } from '@/utils/uploadthing';
 import { z } from 'zod';
 import { toast } from "sonner"
-import { generatePdfSummary } from "@/actions/upload-actions";
+import { generatePdfSummary, storePdfSummaryAction } from "@/actions/upload-actions";
 import { useRef,useState } from 'react';
+import { Router, useRouter } from "next/router";
 
 
 const schema = z.object({
@@ -24,6 +25,7 @@ const schema = z.object({
 export default function UploadForm() {
     const formRef = useRef<HTMLFormElement>(null);
     const [isLoading,setIsLoading] = useState(false);
+    const router = useRouter();
 
     const { startUpload, routeConfig } = useUploadThing("pdfUploader", {
         onClientUploadComplete: () => {
@@ -74,18 +76,34 @@ export default function UploadForm() {
             const {data = null,message = null} = summary||{};
 
             if(data){
+                let storeResult:any;
                 toast.success(`📝 Saving PDF\nHang tight! we are saving the summary`);
-                // if(data.summary){
-                    
-                // //save to database
-                // }
+               
+                if (data.summary) {
+                    storeResult = await storePdfSummaryAction({
+                        fileUrl: resp[0].serverData.file.url,
+                        summary: data.summary,
+                        title: data.title,
+                        fileName: file.name,
+                    });
+                    toast.success('Summary saved successfully 🎉');
+                } else {
+                    toast.error('Summary generation failed 😢');
+                }
                 formRef.current?.reset();
+                setIsLoading(false); // Reset loading state regardless of summary presence
+
+                //redirect to the summary page
+                router.push(`/summary/${storeResult.data.id}`);
             }
         } catch (error) {
             setIsLoading(false);
             console.error('Error:', error);
             toast.error('Something went wrong, please try again');
             formRef.current?.reset();
+        }
+        finally {
+            setIsLoading(false);
         }
     };
     return(
