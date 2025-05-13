@@ -3,7 +3,6 @@ import DeleteButton from "@/components/summaries/delete-button";
 import Link from "next/link";
 import { FileText } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
-import { format } from "path";
 import { formatFileNameAsTitle } from "@/utils/format-utils";
 
 const StatusBadge = ({ status }: { status: string }) => {

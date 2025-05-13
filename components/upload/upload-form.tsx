@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { toast } from "sonner"
 import { generatePdfSummary, storePdfSummaryAction } from "@/actions/upload-actions";
 import { useRef,useState } from 'react';
-import { Router, useRouter } from "next/router";
+import { useRouter } from 'next/navigation';
 
 
 const schema = z.object({
