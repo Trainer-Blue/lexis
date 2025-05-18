@@ -36,7 +36,7 @@ export default function ContentSection({ content }: ContentSectionProps) {
         return (
           <div 
             key={index} 
-            className="p-3.5 rounded-lg shadow-sm hover:shadow-md transition-all bg-purple/30 dark:bg-purple-900/60 backdrop-blur-sm border border-purple-200/50"
+            className="p-3.5 rounded-lg shadow-sm hover:shadow-md transition-all bg-purple-100 dark:bg-purple-900/60 backdrop-blur-sm border border-purple-200/50"
           >
             {hasBold ? (
               <p className="leading-relaxed" dangerouslySetInnerHTML={{ 
