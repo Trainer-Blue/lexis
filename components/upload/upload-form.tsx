@@ -94,8 +94,8 @@ export default function UploadForm() {
                 formRef.current?.reset();
                 setIsLoading(false); // Reset loading state regardless of summary presence
 
-                //redirect to the summary page
-                router.push(`/summary/${storeResult.data.id}`);
+                //redirect to the dashboard
+                router.push(`/dashboard`);
             }
         } catch (error) {
             setIsLoading(false);

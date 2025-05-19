@@ -10,7 +10,7 @@ export default function UploadHeader() {
                     <p className="text-base text-purple-600">AI-Powered Content Creation</p>
                 </Badge>
             </div>
-            <div className="capitalize text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <div className="flex flex-col justify-center items-center capitalize text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 <h1>Start Uploading {' '}<span className="relative inline-block">
                     <span className="relative z-10">Your PDFs </span>
                     <span className="absolute inset-0 bg-violet-200 -z-10 transform -rotate-2 scale-105" aria-hidden="true"></span>

@@ -15,7 +15,7 @@ export default async function DashboardPage() {
 
     const summaries = await getSummaries(userId)
 
-    const uploadLimit = 4;
+    const uploadLimit = 10;
     return (
         <main className="min-h-screen">
             <div className="blob"/>
