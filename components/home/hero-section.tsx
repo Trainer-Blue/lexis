@@ -24,7 +24,7 @@ export default function HeroSection() {
         <MotionH2 variants={itemVariants} initial="hidden" whileInView="visible" className="text-lg sm:text-xl lg:text-2xl text-center px-4 lg:px-0 lg:max-w-4xl">Get a beautiful Summary reel of the document in seconds</MotionH2>
         <MotionDiv variants={itemVariants} whileHover={buttonVariants}>
             <Button variant={'link'} className="text-white mt-6 text-base sm:text-lg lg:text:xl rounded-full px-8 sm:px-10 lg:px-12 py-6 sm:py-7 lg:py-8 lg:mt-16 bg-linear-to-br from-purple-950 to-purple-500 hover:from-purple-500 hover:to-purple-950 hover:no-underline font-bold transition duration-700 shadow-lg">
-                <Link href="/#pricing" className="flex gap-2 items-center">
+                <Link href="/upload" className="flex gap-2 items-center">
                     <MotionSpan>Try Lexis</MotionSpan>
                     <ArrowRight className="animate-pulse" />
                 </Link>

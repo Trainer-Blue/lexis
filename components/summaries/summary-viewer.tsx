@@ -34,7 +34,7 @@ export default function SummaryViewer({ summary }: { summary: string }) {
             <div className="h-full overflow-y-auto no-scrollbar pt-12 sm:pt-16 pb-20 sm:pb-24">
                 <div className="px-4 sm:px-8">
                     <SectionTitle title={sections[currentSection]?.title} />
-                    <ContentSection content={sections[currentSection]?.points} />
+                    <ContentSection content={sections[currentSection]?.points.map(point=>point.toString())} />
                 </div>
             </div>
             <NavigationControls 

@@ -15,7 +15,7 @@ export default async function DashboardPage() {
 
     const summaries = await getSummaries(userId)
 
-    const uploadLimit = 5; // Example limit, replace with actual logic to get the user's upload limit
+    const uploadLimit = 4;
     return (
         <main className="min-h-screen">
             <div className="blob"/>
@@ -31,13 +31,13 @@ export default async function DashboardPage() {
                         </Button>
                     </div>
                 </div>
-                <div className="flex justify-center mb-8">
+                {summaries.length === uploadLimit && (<div className="flex justify-center mb-8">
                     <div className="bg-rose-100 border border-rose-200 rounded-lg p-4 shadow-md text-rose-900">
-                        <p className="text-sm">You've reached the limit of {uploadLimit} uploads on the Basic plan.
-                            <Link href="/pricing" className="flex text-slate-900 hover:underline text-sm"><ArrowRightCircle className="w-5 h-5"/>Click here to Upgrade to Pro for unlimited uploads and more features.</Link>
+                        <p className="text-sm">You've reached the limit of {uploadLimit} uploads, delete a few summaries to upload more.
+                            {/* <Link href="/pricing" className="flex text-slate-900 hover:underline text-sm"><ArrowRightCircle className="w-5 h-5"/>Click here to Upgrade to Pro for unlimited uploads and more features.</Link> */}
                         </p>
                     </div>
-                </div>
+                </div>)}
                 {summaries.length === 0? <EmptySummaryState/>:(
                     <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 sm:px-0">
                         {summaries.map((summary, index) => (

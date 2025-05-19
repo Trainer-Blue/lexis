@@ -16,7 +16,7 @@ export default function CTASection() {
                     <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
                         <div>
                             <Button size="lg" variant={'link'} className="w-full min-[400px]:w-auto bg-linear-to-br from-purple-800 to-purple-500 hover:from-purple-500 hover:to-purple-800 hover:text-white text-white transition duration-300">
-                                <Link href="/#pricing" className="flex items-center justify-center text-lg font-semibold">
+                                <Link href="/upload" className="flex items-center justify-center text-lg font-semibold">
                                     Get Started
                                     <ArrowRight className="ml-2 h-4 w-4 animate-pulse" />
                                 </Link>

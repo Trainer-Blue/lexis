@@ -7,6 +7,7 @@ import { toast } from "sonner"
 import { generatePdfSummary, storePdfSummaryAction } from "@/actions/upload-actions";
 import { useRef,useState } from 'react';
 import { useRouter } from 'next/navigation';
+import LoadingSkeleton from "./loading-skeleton";
 
 
 const schema = z.object({
@@ -70,7 +71,7 @@ export default function UploadForm() {
 
             toast.info('💫 Processing your PDF');
 
-            const summary = await generatePdfSummary(resp);
+            const summary = await generatePdfSummary([resp[0]]);
             console.log({summary});
 
             const {data = null,message = null} = summary||{};
@@ -109,6 +110,7 @@ export default function UploadForm() {
     return(
         <div className="flex flex-col gap-8 w-full max-w-2xl mx-auto">
             <UploadFormInput isLoading={isLoading} ref={formRef} onSubmit = {handleSubmit}/>
+            {isLoading && (<LoadingSkeleton/>)}
         </div>
     )
 };
