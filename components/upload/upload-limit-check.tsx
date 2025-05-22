@@ -11,7 +11,7 @@ interface UploadLimitCheckProps {
 }
 
 export default async function UploadLimitCheck({ 
-  uploadLimit = 5, // Default upload limit
+  uploadLimit = 10, // Default upload limit
   children 
 }: UploadLimitCheckProps) {
   // Get current user (server-side)

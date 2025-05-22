@@ -37,8 +37,8 @@ export default function UploadForm() {
           console.error("error occurred while uploading",err);
             toast.error(`Error occurred while uploading: ${err.message}`);
         },
-        onUploadBegin: ([file]) => {
-          console.log("upload has begun for", file);
+        onUploadBegin: (data) => {
+          console.log("upload has begun for", data);
             toast.info(`Upload has begun`);
         },
     });
@@ -55,15 +55,15 @@ export default function UploadForm() {
             //validating the fields
 
             const validatedFields = schema.safeParse({file});
-            console.log(validatedFields);
+            
             if(!validatedFields.success) {
                 toast.error(`Something went wrong: ${validatedFields.error.flatten().fieldErrors.file?.[0] ?? 'Please try again'}`);
                 setIsLoading(false);
                 return;
             }
 
-            const resp = await startUpload([file]);
-            if(!resp){
+            const uploadResponse = await startUpload([file]);
+            if(!uploadResponse){
                 toast.error('Something went wrong, please try again');
                 setIsLoading(false);
                 return;
@@ -71,7 +71,12 @@ export default function UploadForm() {
 
             toast.info('💫 Processing your PDF');
 
-            const summary = await generatePdfSummary([resp[0]]);
+            const file_url = uploadResponse[0].serverData.fileUrl;
+
+            const summary = await generatePdfSummary({
+                fileUrl: file_url,
+                fileName: file.name,
+            });
             console.log({summary});
 
             const {data = null,message = null} = summary||{};
@@ -82,7 +87,7 @@ export default function UploadForm() {
                
                 if (data.summary) {
                     storeResult = await storePdfSummaryAction({
-                        fileUrl: resp[0].serverData.file.url,
+                        fileUrl: file_url,
                         summary: data.summary,
                         title: data.title,
                         fileName: file.name,
