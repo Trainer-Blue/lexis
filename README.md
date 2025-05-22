@@ -1,5 +1,7 @@
 # 📚 Lexis - AI-Powered PDF Summarization Platform
 
+![ProjectImage](/public/opengraph-image.png)
+
 ## 🎯 Overview
 A modern web application that transforms PDF documents into concise, AI-generated summaries. Built with Next.js 15 and powered by cutting-edge AI technology, Lexis offers a seamless document summarization experience with a beautiful, animated interface.
 

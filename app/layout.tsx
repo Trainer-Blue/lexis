@@ -12,9 +12,23 @@ const fontSans = FontSans({
   weight: ['200','300','400','600','700','800','900'],
 });
 
+const ORIGIN_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
 export const metadata: Metadata = {
   title: "lexisPDF - AI Powered PDF Summarisation",
   description: "Effortlessly summarise your PDF documents using advanced AI technology. Enhance productivity and streamline your workflow with lexisPDF.",
+  openGraph: {
+    images: [
+      {
+        url: '/opengraph-image.png',
+        alt: 'LexisPDF - AI-Powered PDF Summarization',
+      },
+    ],
+  },
+  metadataBase: new URL(ORIGIN_URL),
+  alternates: {
+    canonical: ORIGIN_URL,
+  },
 };
 
 export default function RootLayout({
