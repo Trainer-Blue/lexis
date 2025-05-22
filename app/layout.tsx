@@ -17,6 +17,9 @@ const ORIGIN_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 export const metadata: Metadata = {
   title: "lexisPDF - AI Powered PDF Summarisation",
   description: "Effortlessly summarise your PDF documents using advanced AI technology. Enhance productivity and streamline your workflow with lexisPDF.",
+  icons: {
+    icon: 'https://lexispdf.vercel.app/logo.png',
+  },
   openGraph: {
     images: [
       {

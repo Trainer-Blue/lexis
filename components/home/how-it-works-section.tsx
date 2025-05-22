@@ -26,7 +26,7 @@ const steps: Steps[] = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="relative overflow-hidden bg-purple-100/30">
+    <section id="how-it-works" className="relative overflow-hidden bg-purple-100/30">
         <div className="py-12 lg:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 lg:pt-12">
         <div className="text-center mb-16">
             <h2 className="font-bold text-xl uppercase mb-4 text-purple-500">

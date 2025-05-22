@@ -9,9 +9,6 @@ export default function EmptySummaryState() {
                 className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" 
                 aria-hidden="true"
             >
-                <span className="text-[60px] sm:text-[90px] md:text-[120px] font-extrabold text-gray-900/20 dark:text-gray-100 blur-[2px]">
-                    NO SUMMARIES
-                </span>
             </div>
             
             <div className="relative z-10 flex flex-col items-center justify-center text-center gap-3 md:gap-4 w-full max-w-[280px] sm:max-w-md">

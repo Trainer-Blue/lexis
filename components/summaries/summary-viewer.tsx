@@ -8,7 +8,7 @@ import ProgressBar from "./progress-bar";
 import ContentSection from "./content-section";
 
 const SectionTitle = ({ title }: { title: string }) => (
-    <div className="flex flex-col gap-2 mb-6 sticky top-0 pt-2 bg-background/80 backdrop-blur-xs z-10">
+    <div className="flex flex-col gap-2 mb-6 sticky top-0 pt-2 bg-transparent backdrop-blur-xs z-10">
         <h2 className="text-3xl lg:text-4xl font-bold text-center flex items-center justify-center gap-2">
             {title}
         </h2>
@@ -28,22 +28,30 @@ export default function SummaryViewer({ summary }: { summary: string }) {
     .map(parseSection)
     return (
         <Card 
-            className="relative px-2 h-[500px] sm:h-[600px] lg:h-[700px] w-full xl:w-[600px] overflow-hidden bg-gradient-to-br from-background via-background/95 to-rose-500/5 backdrop-blur-lg shadow-2xl rounded-3xl border border-rose-500/10"
+            className="relative min-h-[700px] h-full w-full xl:w-[600px] overflow-hidden bg-gradient-to-br from-background via-background/95 to-rose-500/5 backdrop-blur-lg shadow-2xl rounded-3xl border border-rose-500/10"
             >
             <ProgressBar sections={sections} currentSection={currentSection} />
-            <div className="h-full overflow-y-auto no-scrollbar pt-12 sm:pt-16 pb-20 sm:pb-24">
-                <div className="px-4 sm:px-8">
+            
+            {/* Use flex layout to keep navigation fixed at bottom */}
+            <div className="flex flex-col h-full pt-12 sm:pt-16">
+                {/* Main content area with scrolling */}
+                <div className="flex-1 px-4 sm:px-8 pb-4">
                     <SectionTitle title={sections[currentSection]?.title} />
                     <ContentSection content={sections[currentSection]?.points.map(point=>point.toString())} />
+                        {/* Fixed navigation area */}
+                    <div className="absolute bottom-0 left-0 right-0 pb-8 px-4 sm:px-8 py-4 bg-transparent backdrop-blur-sm">
+                        <NavigationControls 
+                            currentSection={currentSection}
+                            totalSections={sections.length}
+                            onPrevious={handlePrevious}
+                            onNext={handleNext}
+                            onSectionSelect={setCurrentSection}
+                        />
+                    </div>
                 </div>
+                
+                
             </div>
-            <NavigationControls 
-                    currentSection={currentSection}
-                    totalSections={sections.length}
-                    onPrevious={handlePrevious}
-                    onNext={handleNext}
-                    onSectionSelect={setCurrentSection}
-                />
         </Card>
     );
 }

@@ -26,8 +26,8 @@ export default function NavigationControls({
   onSectionSelect,
 }: NavigationControlsProps) {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between mt-6 gap-4">
-      <div className="flex items-center space-x-2">
+    <div className="flex flex-col sm:flex-row items-center bg-transparent backdrop-blur-sm justify-between gap-4">
+      <div className="flex items-center space-x-2 bg-transparent">
         <Button
           variant="outline"
           size="icon"
