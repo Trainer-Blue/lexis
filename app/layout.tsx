@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: 'https://lexispdf.vercel.app/opengraph-image.png',
+        width: 1200,
+        height: 630,
         alt: 'LexisPDF - AI-Powered PDF Summarization',
       },
     ],
