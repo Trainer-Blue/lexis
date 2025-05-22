@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: '/opengraph-image.png',
+        url: 'https://lexispdf.vercel.app/opengraph-image.png',
         alt: 'LexisPDF - AI-Powered PDF Summarization',
       },
     ],
